@@ -1,0 +1,7 @@
+# Solo se carga con el perfil "dev". Sobrescribe lo que haya en application.yaml.
+tienda:
+  nombre: Tienda Online (DESARROLLO)
+
+logging:
+  level:
+    com.tienda: debug

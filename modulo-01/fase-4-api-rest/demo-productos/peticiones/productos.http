@@ -1,0 +1,54 @@
+### Listar productos → 200
+GET http://localhost:8080/productos
+
+### Filtrar por categoría → 200
+GET http://localhost:8080/productos?categoria=perifericos
+
+### Consultar uno → 200
+GET http://localhost:8080/productos/TEC-01
+
+### Consultar uno que no existe → 404 con ProblemDetail
+GET http://localhost:8080/productos/NO-00
+
+### Crear → 201 + cabecera Location
+POST http://localhost:8080/productos
+Content-Type: application/json
+
+{
+  "sku": "WEB-01",
+  "nombre": "Webcam HD",
+  "categoria": "perifericos",
+  "precio": 49.90,
+  "coste": 20.00
+}
+
+### Crear con SKU repetido → 409
+POST http://localhost:8080/productos
+Content-Type: application/json
+
+{
+  "sku": "TEC-01",
+  "nombre": "Otro teclado",
+  "categoria": "PERIFERICOS",
+  "precio": 50.00,
+  "coste": 20.00
+}
+
+### Crear con datos inválidos → 400 con la lista de errores
+POST http://localhost:8080/productos
+Content-Type: application/json
+
+{
+  "sku": "mal",
+  "nombre": "",
+  "precio": -5
+}
+
+### JSON mal formado → 400 (lo traduce ResponseEntityExceptionHandler)
+POST http://localhost:8080/productos
+Content-Type: application/json
+
+{ "sku": "WEB-02",
+
+### Método no soportado → 405
+DELETE http://localhost:8080/productos/TEC-01
