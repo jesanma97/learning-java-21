@@ -1,0 +1,8 @@
+# Cualquier carpeta llamada "solucion", a cualquier nivel
+solucion/
+
+# Todos los PDF
+*.pdf
+
+# Notas del profesor, estén donde estén
+notas-profesor.md
