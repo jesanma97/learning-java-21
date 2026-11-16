@@ -2,6 +2,7 @@ package com.tienda.streams;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public record Pedido(String id, Cliente cliente, LocalDate fecha, EstadoPedido estado, List<LineaPedido> lineas) {
@@ -16,4 +17,6 @@ public record Pedido(String id, Cliente cliente, LocalDate fecha, EstadoPedido e
                 .map(LineaPedido::subtotal)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
+
 }
+

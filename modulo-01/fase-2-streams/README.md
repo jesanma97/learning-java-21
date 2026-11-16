@@ -10,8 +10,30 @@ El departamento comercial quiere unos informes rápidos sobre los pedidos de la 
 
 1. Abre la carpeta `ejercicio/` en IntelliJ (**File → Open**, selecciona el `pom.xml` y ábrelo como proyecto).
 2. Echa un vistazo a los datos en `DatosTienda`: 5 clientes, 5 productos y 16 pedidos.
-3. Ejecuta `EjerciciosStreamsTest`. Todos los tests fallan: es lo esperado.
-4. Implementa los métodos de `EjerciciosStreams` hasta que los tests pasen a verde.
+3. **Calentamiento:** implementa `CalentamientoStreams` hasta que `CalentamientoStreamsTest` pase a verde. Son ejercicios cortos con una operación de stream cada uno (ver más abajo).
+4. Ejecuta `EjerciciosStreamsTest`. Todos los tests fallan: es lo esperado.
+5. Implementa los métodos de `EjerciciosStreams` hasta que los tests pasen a verde.
+
+## Calentamiento (`CalentamientoStreams`)
+
+Cada ejercicio muestra en su Javadoc cómo se haría con un bucle `for` y qué operación de stream lo sustituye. Hazlos en orden: cada uno añade una sola pieza nueva.
+
+**Aquí no hay regla común:** cada ejercicio dice si los cancelados cuentan o no.
+
+| # | Método | Operación nueva |
+|---|---|---|
+| 1 | `idsDePedidos` | `map` + `toList` |
+| 2 | `pedidosPendientes` | `filter` |
+| 3 | `contarCancelados` | `count` |
+| 4 | `nombresDeClientes` | `distinct` + `sorted` |
+| 5 | `ciudades` | dos `map` seguidos + `Collectors.toSet` |
+| 6 | `haPedidoAlgo` | `anyMatch` |
+| 7 | `buscarPorId` | `findFirst` y `Optional` |
+| 8 | `pedidoMasCaro` | `max` con `Comparator.comparing` |
+| 9 | `pedidosPorEstado` | `groupingBy` + `counting` |
+| 10 | `unidadesVendidas` | `flatMap` + `mapToInt` + `sum` |
+
+**Regla para traducir un bucle a un stream:** el `if` se convierte en `filter`, lo que metes en la lista se convierte en `map`, un bucle dentro de otro se convierte en `flatMap` y lo que devuelves al final es la operación terminal (`toList`, `count`, `sum`...).
 
 ## Regla común
 
