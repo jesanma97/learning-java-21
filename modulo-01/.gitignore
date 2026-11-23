@@ -1,8 +1,12 @@
 # Cualquier carpeta llamada "solucion", a cualquier nivel
-solucion/
+#solucion/
 
 # Todos los PDF
-*.pdf
+#*.pdf
+
+fase-4-api-rest/solucion
+fase-4-api-rest/rubrica.md
+fase-4-api-rest/notas-profesor.pdf
 
 # Notas del profesor, estén donde estén
 notas-profesor.md
