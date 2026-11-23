@@ -1,0 +1,10 @@
+# Solo se carga con el perfil "prod".
+server:
+  port: 8081
+
+tienda:
+  envio-gratis-desde: "60.00"
+
+logging:
+  level:
+    root: warn
